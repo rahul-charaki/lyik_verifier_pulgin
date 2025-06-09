@@ -13,4 +13,4 @@ requires-python = ">=3.10"
 dependencies = []
 
 [project.entry-points."LYIK"]
-_200_VERIFIER_MOBILE_NUMBER_CUSTOM = "lyik.mobile_verifier.mobile_verification.py:MobileVerification"
+_200_VERIFIER_MOBILE_NUMBER_CUSTOM = "lyik.mobile_verifier.mobile_verification:MobileVerification"
