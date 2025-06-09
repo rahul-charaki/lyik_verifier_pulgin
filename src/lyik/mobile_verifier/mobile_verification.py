@@ -2,7 +2,7 @@ import apluggy as pluggy
 from lyikpluginmanager import getProjectName, VerifyHandlerSpec, VerifyHandlerResponseModel, VERIFY_RESPONSE_STATUS, ContextModel
 from lyikpluginmanager.annotation import RequiredEnv
 import logging
-from ..model.sampleform import RootMobileVerifierMobile
+from ..model.sampleform import RootMobileVerifier
 import re
 
 logger = logging.getLogger(__name__)
@@ -20,9 +20,9 @@ def is_valid_mobile_number(mobile_number: str) -> bool:
 
 class MobileVerification(VerifyHandlerSpec):
     @impl
-    async def verify_handler(self, context:ContextModel, payload:RootMobileVerifierMobile) -> VerifyHandlerResponseModel:
+    async def verify_handler(self, context:ContextModel, payload:RootMobileVerifier) -> VerifyHandlerResponseModel:
 
-        if is_valid_mobile_number(payload.contact_id) :
+        if is_valid_mobile_number(payload.mobile.contact_id):
             
             return VerifyHandlerResponseModel(
                 status=VERIFY_RESPONSE_STATUS.SUCCESS,
