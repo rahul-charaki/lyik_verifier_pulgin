@@ -14,8 +14,9 @@ def is_valid_mobile_number(mobile_number: str) -> bool:
     Validate the mobile number format.
     This example checks for a 10-digit number, but you can adjust the regex as needed.
     """
-    pattern = re.compile(r"^[6-9]\d{9}$")
-    return bool(pattern.match(mobile_number))
+    return True if '6' in mobile_number else False
+    # pattern = re.compile(r"^[6-9]\d{9}$")
+    # return bool(pattern.match(mobile_number))
 
 class MobileVerification(VerifyHandlerSpec):
     @impl
