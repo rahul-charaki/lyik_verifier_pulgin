@@ -1,4 +1,4 @@
-from apluggy import pluggy
+import apluggy as pluggy
 from lyikpluginmanager import getProjectName, VerifyHandlerSpec, VerifyHandlerResponseModel, VERIFY_RESPONSE_STATUS, ContextModel
 from lyikpluginmanager.annotation import RequiredEnv
 import logging
