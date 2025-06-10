@@ -8,8 +8,7 @@ from datetime import date
 from enum import Enum
 from typing import Any, Dict, Optional, Union
 
-from pydantic import ConfigDict, EmailStr, Field
-from pydantic_v2 import BaseModel
+from pydantic import ConfigDict, EmailStr, Field, BaseModel
 
 
 class GENDER(Enum):
