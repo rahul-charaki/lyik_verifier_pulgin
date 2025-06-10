@@ -1,1 +1,2 @@
 from .mobile_verification import MobileVerification
+from .mobile_verification import UserVerification
