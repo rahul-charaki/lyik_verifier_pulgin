@@ -14,7 +14,7 @@ class UserVerification(VerifyHandlerSpec):
         """
         Verify user details such as name and email.
         """
-        if payload.name and payload.email:
+        if payload.first_name and payload.email:
             return VerifyHandlerResponseModel(
                 status=VERIFY_RESPONSE_STATUS.SUCCESS,
                 message="User verification successful",
