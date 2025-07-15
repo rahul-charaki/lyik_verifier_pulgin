@@ -7,12 +7,12 @@ import logging
 logger = logging.getLogger(__name__)
 impl = pluggy.HookimplMarker(getProjectName())
 
-def fetch_pincode_info(pincode: str):
+def fetch_pincode_info(pincode: int):
     """
     Validates and fetches city, district, state for a given Indian PIN code.
     Returns dict or None if invalid.
     """
-    if not pincode.isdigit() or len(pincode) != 6:
+    if not isinstance(pincode, int) or len(str(pincode)) != 6:
         return {"message": "Invalid pincode format"}
 
     try:
@@ -48,7 +48,14 @@ def fetch_pincode_info(pincode: str):
 class PincodeVerification(VerifyHandlerSpec):
     @impl
     async def verify_handler(self, context: ContextModel, payload: RootCenterInfo) -> VerifyHandlerResponseModel:
-        info = fetch_pincode_info(payload.partner_address_proof.pincode)
+        try:
+            pincode_int = int(payload.pincode)
+        except (ValueError, TypeError):
+            return VerifyHandlerResponseModel(
+            status=VERIFY_RESPONSE_STATUS.FAILURE,
+            message="Pincode must be a 6-digit number"
+            )
+        info = fetch_pincode_info(pincode_int)
 
         if info:
             return VerifyHandlerResponseModel(
