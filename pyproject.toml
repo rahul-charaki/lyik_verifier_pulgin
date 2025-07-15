@@ -7,7 +7,7 @@ name = "plugin-mobile-verifier"
 version = "0.1.0"
 description = "Verifying a valid mobile number"
 readme = "README.md"
-authors = [{ name = "Rahul C", email = "charakirahul@gmail.com" }]
+authors = [{ name = "Rahul C", email = "rahulc@gmail.com" }]
 license = { file = "LICENSE.txt" }
 requires-python = ">=3.10"
 dependencies = []
@@ -16,3 +16,4 @@ dependencies = []
 _200_VERIFIER_MOBILE_NUMBER_CUSTOM = "lyik.mobile_verifier.mobile_verification:MobileVerification"
 _200_VERIFIER_USER_DETAILS = "lyik.mobile_verifier.mobile_verification:UserVerification"
 _200_VERIFIER_PERSONAL_DETAILS = "lyik.user_verifier.user_verification:UserVerification"
+_200_FETCH_PINCODE_DETAILS = "lyik.pincode.fetch_add_pin:PincodeVerification"
