@@ -36,9 +36,7 @@ def fetch_pincode_info(pincode: int):
         cities = first.get("Division")
 
         return {
-            "state": state,
-            "city": cities,
-            "region": district,
+            "city": cities, "state": state, "region": district,
         }
 
     except Exception as e:
