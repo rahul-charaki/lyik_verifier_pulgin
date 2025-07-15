@@ -7,8 +7,7 @@ from __future__ import annotations
 from enum import Enum
 from typing import Any, Dict, List, Optional, Union
 
-from pydantic import ConfigDict, EmailStr, Field, constr
-from pydantic_v2 import BaseModel
+from pydantic import ConfigDict, EmailStr, Field, constr, BaseModel
 
 
 class BANKACCOUNTDETAILS(str, Enum):
