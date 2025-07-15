@@ -16,7 +16,7 @@ def fetch_pincode_info(pincode: int):
         return {"message": "Invalid pincode format"}
 
     try:
-        url = f"https://api.postalpincode.in/pincode/560040"
+        url = f"https://api.postalpincode.in/pincode/{pincode}"
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers, timeout=5)
 
