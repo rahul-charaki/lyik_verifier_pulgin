@@ -1,6 +1,6 @@
 import apluggy as pluggy
 from lyikpluginmanager import getProjectName, VerifyHandlerSpec, VerifyHandlerResponseModel, VERIFY_RESPONSE_STATUS, ContextModel
-from ..model.partneronboardapplicationform import RootCenterInfoPartnerAddressProof
+from ..model.partneronboardapplicationform import RootCenterInfo
 import requests
 import logging
 
@@ -16,7 +16,7 @@ def fetch_pincode_info(pincode: str):
         return {"message": "Invalid pincode format"}
 
     try:
-        url = f"https://api.postalpincode.in/pincode/{pincode}"
+        url = f"https://api.postalpincode.in/pincode/560040"
         headers = {"User-Agent": "Mozilla/5.0"}
         response = requests.get(url, headers=headers, timeout=5)
 
@@ -47,8 +47,8 @@ def fetch_pincode_info(pincode: str):
 
 class PincodeVerification(VerifyHandlerSpec):
     @impl
-    async def verify_handler(self, context: ContextModel, payload: RootCenterInfoPartnerAddressProof) -> VerifyHandlerResponseModel:
-        info = fetch_pincode_info(payload.pincode)
+    async def verify_handler(self, context: ContextModel, payload: RootCenterInfo) -> VerifyHandlerResponseModel:
+        info = fetch_pincode_info(payload.partner_address_proof.pincode)
 
         if info:
             return VerifyHandlerResponseModel(
