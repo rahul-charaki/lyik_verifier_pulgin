@@ -59,7 +59,7 @@ class PincodeVerification(VerifyHandlerSpec):
             return VerifyHandlerResponseModel(
                 status=VERIFY_RESPONSE_STATUS.SUCCESS,
                 message="Pincode verification successful",
-                data=info
+                response=info
             )
         else:
             return VerifyHandlerResponseModel(
