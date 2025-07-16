@@ -56,10 +56,17 @@ class PincodeVerification(VerifyHandlerSpec):
         info = fetch_pincode_info(pincode_int)
 
         if info:
+            # Add address fields from payload to the response
+            info.update({
+            "address1": getattr(payload, "address1", None),
+            "address2": getattr(payload, "address2", None),
+            "address3": getattr(payload, "address3", None),
+            "landmark": getattr(payload, "landmark", None),
+            })
             return VerifyHandlerResponseModel(
-                status=VERIFY_RESPONSE_STATUS.SUCCESS,
-                message="Pincode verification successful",
-                response=info
+            status=VERIFY_RESPONSE_STATUS.SUCCESS,
+            message="Pincode verification successful",
+            response=info
             )
         else:
             return VerifyHandlerResponseModel(
