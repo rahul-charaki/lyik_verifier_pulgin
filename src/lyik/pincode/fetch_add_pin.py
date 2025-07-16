@@ -58,9 +58,9 @@ class PincodeVerification(VerifyHandlerSpec):
         if info:
             # Add address fields from payload to the response
             info.update({
-            "address1": getattr(payload, "address1", None),
-            "address2": getattr(payload, "address2", None),
-            "address3": getattr(payload, "address3", None),
+            "address_line_1": getattr(payload, "address_line_1", None),
+            "address_line_2": getattr(payload, "address_line_2", None),
+            "address_line_3": getattr(payload, "address_line_3", None),
             "landmark": getattr(payload, "landmark", None),
             })
             return VerifyHandlerResponseModel(
